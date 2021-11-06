@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> To-Do App </title>
+    <!-- BEGIN: Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- END: Scripts -->
+
+    <!-- BEGIN: StyleSheet -->
+    <link rel="stylesheet" href="">
+    <!-- END: StyleSheet -->
+
 </head>
+
 <body>
-    anasayfa
+    <div id="apsisx">
+        <template>
+            <div class="aps-container">
+                <div class="aps-list-container">
+                    <div class="aps-todo-item">
+                        <div class="aps-item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                        <div class="aps-item-delete"> x </div>
+                        <div class="aps-item-edit"> e </div>
+                    </div>
+                    <div class="aps-todo-item">
+                        <div class="aps-item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                        <div class="aps-item-delete"> x </div>
+                        <div class="aps-item-edit"> e </div>
+                    </div>
+                    <div class="aps-todo-item">
+                        <div class="aps-item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                        <div class="aps-item-delete"> x </div>
+                        <div class="aps-item-edit"> e </div>
+                    </div>
+                    <div class="aps-todo-item">
+                        <div class="aps-item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                        <div class="aps-item-delete"> x </div>
+                        <div class="aps-item-edit"> e </div>
+                    </div>
+                    <div class="aps-todo-item">
+                        <div class="aps-item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                        <div class="aps-item-delete"> x </div>
+                        <div class="aps-item-edit"> e </div>
+                    </div>
+                    <div class="aps-todo-item">
+                        <div class="aps-item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                        <div class="aps-item-delete"> x </div>
+                        <div class="aps-item-edit"> e </div>
+                    </div>
+                    <div class="aps-todo-item">
+                        <div class="aps-item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                        <div class="aps-item-delete"> x </div>
+                        <div class="aps-item-edit"> e </div>
+                    </div>
+                    <div class="aps-todo-item">
+                        <div class="aps-item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+                        <div class="aps-item-delete"> x </div>
+                        <div class="aps-item-edit"> e </div>
+                    </div>
+                </div>
+                <div class="aps-add-todo">
+                    <input type="text" class="aps-todo-text">
+                    <button class="aps-todo-add-btn"> ADD </button>
+                </div>
+            </div>
+        </template>
+    </div>
+    <script>
+        new Vue({
+            el: '#apsisx',
+            data: {
+                ms : 'dne'
+            }
+        })
+    </script>
 </body>
+
 </html>

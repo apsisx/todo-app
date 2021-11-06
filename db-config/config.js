@@ -6,9 +6,6 @@ const connectKnex = knex({
         filename: 'todo-app.sqlite3'
     },
     useNullAsDefault: true
-
 })
-
-
 
 module.exports = connectKnex
