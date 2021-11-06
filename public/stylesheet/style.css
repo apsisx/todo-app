@@ -1,3 +1,53 @@
 * {
     box-sizing: border-box;
 }
+
+html,
+body {
+    height: 100%;
+}
+
+.aps-container {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.aps-list-container {
+    overflow: scroll;
+    height: 350px;
+    overflow-x: hidden;
+    border: 1px solid;
+    padding: 15px;
+}
+
+.aps-todo-item {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    border: 1px solid;
+    margin: 4px;
+    justify-content: space-between;
+}
+
+.aps-item-control {
+    width: 70px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.aps-add-todo {
+    margin-top: 15px;
+}
+
+.aps-todo-text {
+    width: 88%;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.aps-todo-add-btn {
+    width: 10%;
+    padding: 10px;
+}
