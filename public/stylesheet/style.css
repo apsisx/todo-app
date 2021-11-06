@@ -98,10 +98,12 @@ input:focus {
 
 .aps-add-todo {
     margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .aps-todo-text {
-    width: 88%;
+    width: 80%;
     font-size: 18px;
     padding: 8px;
     background: #282828;
