@@ -1,40 +1,99 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-html,
 body {
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #282828;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Scroll Bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f3c839;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(18, 58, 65);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .aps-container {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-    margin-top: 50px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: -4px -4px 10px rgb(67 67 67 / 50%),
+        inset 4px 4px 10px rgb(0 0 0 / 50%),
+        inset -4px -4px 10px rgb(67 67 67 / 30%),
+        4px 4px 10px rgb(0 0 0 / 30%);
 }
 
 .aps-list-container {
     overflow: scroll;
     height: 350px;
     overflow-x: hidden;
-    border: 1px solid;
     padding: 15px;
+    padding-top: 0;
+    width: 600px;
 }
 
 .aps-todo-item {
     width: 100%;
     display: flex;
     padding: 10px;
-    border: 1px solid;
-    margin: 4px;
     justify-content: space-between;
+    box-shadow: -2px -2px 5px #1a1a1a, 2px 2px 5px #524040;
+    margin-bottom: 16px;
+    color: #ffb510;
 }
+
 
 .aps-item-control {
     width: 70px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: -2px -2px 5px #161414, 2px 2px 5px #123a41;
+    padding: 5px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.aps-item-delete,
+.aps-item-edit {
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.aps-item-delete:hover,
+.aps-item-edit:hover, .aps-todo-add-btn:hover {
+    box-shadow: -2px -2px 5px #161414, 2px 2px 5px #123a41;
+    font-weight: bold;
+}
+
+.aps-item-delete:active,
+.aps-item-edit:active, .aps-todo-add-btn:active {
+    box-shadow: 2px 2px 5px #161414, -2px -2px 5px #123a41;
+    user-select: none;
 }
 
 .aps-add-todo {
@@ -45,9 +104,25 @@ body {
     width: 88%;
     font-size: 18px;
     padding: 8px;
+    background: #282828;
+    border-radius: 10px;
+    border: none;
+    box-shadow: inset 2px 2px 5px #3f3434, inset -5px -5px 10px #1a1a1a;
+    color: #ffb510;
+}
+
+
+.aps-item-text {
+    width: 450px;
 }
 
 .aps-todo-add-btn {
-    width: 10%;
-    padding: 10px;
+    padding: 9px 15px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: -2px -2px 5px #161414, 2px 2px 5px #123a41;
+    background: transparent;
+    margin-left: 8px;
+    color: #ffb510;
+    cursor: pointer;
 }
