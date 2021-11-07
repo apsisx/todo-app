@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To-Do App </title>
+    <!-- BEGIN: Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- END: Scripts -->
+
+    <!-- BEGIN: StyleSheet -->
+    <link rel="stylesheet" href="/stylesheet/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- END: StyleSheet -->
+</head>
+
+<body>
+    <div id="apsisx">
+        <template>
+            <div class="aps-container">
+                <div class="aps-list-container">
+                    <div class="aps-todo-item" v-for="(isToDoItem, index) in isToDoList" :key="index">
+                        <div class="aps-item-text"> {{ isToDoItem.t_name }} </div>
+                        <div class="aps-item-control">
+                            <div class="aps-item-delete" @click="isSettingButton('delete', isToDoItem.id)"> <i class="fa fa-times"></i> </div>
+                            <div class="aps-item-edit"  @click="isSettingButton('edit', isToDoItem.id)"> <i class="fa fa-pencil"></i> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aps-add-todo">
+                    <input type="text" class="aps-todo-text" v-model="isToDoText">
+                    <button class="aps-todo-add-btn" @click="addToDoList" v-if="! toUpdate"> Add </button>
+                    <button class="aps-todo-add-btn" @click="isSettingButton('update', isSelectedToDoItem.id)" v-if="toUpdate"> Update </button>
+                </div>
+            </div>
+        </template>
+    </div>
+    <script>
+        new Vue({
+            el: '#apsisx',
+            data: {
+                isToDoText: '',
+                isToDoList: [],
+                isSelectedToDoItem : [],
+                toUpdate : false
+            },
+            methods: {
+                addToDoList() {
+                    if (this.isToDoText) {
+                        const data = {
+                            t_name: this.isToDoText
+                        }
+                        fetch('/api/todo', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(data),
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                               this.isToDoList = data
+                               this.isToDoText = ''
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            })
+                    }
+                },
+                isSettingButton(isCommand, isToDoItemID) {
+                    if(isCommand == 'edit') {
+                        this.toUpdate = true
+                        var findByID = this.isToDoList.filter((item) => { return item.id == isToDoItemID })
+                        this.isSelectedToDoItem = findByID[0]
+                        this.isToDoText = findByID[0].t_name
+                    }else {
+                        this.toUpdate = false
+                    }
+
+                    const data = {
+                            command: isCommand,
+                            id: isToDoItemID,
+                            t_name: this.isToDoText
+                        }
+                        fetch('/api/todo-control', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(data),
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                this.isToDoList = data
+                                this.isToDoText = ''
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            })
+                }
+            },
+            created() {
+                fetch('/api/todo')
+                .then((res) => { return res.json() })
+                .then((res) => {
+                    this.isToDoList = res
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>
