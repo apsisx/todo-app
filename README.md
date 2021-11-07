@@ -17,7 +17,4 @@ It's simple To-Do application, built by Express and Vuejs, that it is an example
     <li> <code> Knexjs </code>: For creating inbuild queries, knexjs is the best for SQLite3 </li>
     <li> <code> SQLite3 </code>: For saving datas </li>
 </ul>
-<ul>
-    <h2> Libraries on the frontend </h2>
-    <li> <code> Vue.js </code>: One of the fastest framework. </li>
-</ul>
+<p> For demo you can check <a href="https://easy-lively-feather.glitch.me/" target="_blank"> Glitch Demo </a> </p>
